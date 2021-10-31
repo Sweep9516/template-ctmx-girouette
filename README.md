@@ -16,5 +16,5 @@ In the newly created project, launch girouette:
     $ clojure -X:girouette
 
 
-Find the guide on [deps-new](https://github.com/seancorfield/deps-new) install it as 'new' tool. 
+Find the guide on [deps-new](https://github.com/seancorfield/deps-new) to install it as 'new' tool. 
 
