@@ -1,0 +1,26 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+
+        ctmx/ctmx {:mvn/version "1.4.3"}
+        girouette/girouette {:mvn/version "0.0.5"}
+        http-kit/http-kit {:mvn/version "2.5.3"}
+        metosin/reitit {:mvn/version "0.5.15"}
+
+        ring/ring-core {:mvn/version "1.9.4"}
+        ring/ring-defaults {:mvn/version "0.3.2"}
+        ring/ring-devel {:mvn/version "1.9.4"}}
+
+ :aliases
+ {:test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.0"}
+                      io.github.cognitect-labs/test-runner {:git/tag "v0.5.0" :git/sha "48c3c67"}}}
+  :build {:deps {io.github.seancorfield/build-clj {:git/tag "v0.5.2" :git/sha "8f75b81"}}
+          :ns-default build}
+  :girouette {:extra-deps {girouette/processor {:mvn/version "0.0.5"}}
+              :ns-default girouette.processor
+              :exec-fn    process
+              :exec-args  {:css       {:output-file "resources/public/girouette.css"}
+                           :garden-fn girouette.tw.default-api/class-name->garden
+                           :watch?    true
+                           :input {:file-filters [".clj" ".cljc"]}}}}}
+
